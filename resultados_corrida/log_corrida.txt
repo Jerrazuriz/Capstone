@@ -1,0 +1,471 @@
+Corrida local del notebook Modelo_Final_Maule_revisado.ipynb
+
+######## celda 2 ########
+"pip" no se reconoce como un comando interno o externo,
+programa o archivo por lotes ejecutable.
+gurobipy (13, 0, 3)
+
+######## celda 5 ########
+Sin gurobi.lic: suban el archivo o peguen sus valores WLS en esta celda.
+
+######## celda 7 ########
+Archivos encontrados: ['plpcnfce.dat', 'plpbar.dat', 'po12meses_jul26.xlsx', 'CaudalesHistoricos.xlsx']
+
+######## celda 9 ########
+Gasto 160 m3/s -> reserva ordinaria 340 hm3, porción superior desde 510 hm3
+
+######## celda 11 ########
+Embalses: ['LMAULE', 'CIPRESES', 'PEHUENCHE', 'COLBUN']
+Centrales: ['LOS_CONDORES', 'LA_MINA', 'CIPRESES', 'OJOS_DE_AGUA', 'ISLA', 'CURILLINQUE', 'LOMA_ALTA', 'LOS_HIERROS', 'LOS_HIERROS_2', 'PEHUENCHE', 'COLBUN', 'SAN_CLEMENTE', 'MACHICURA', 'SAN_IGNACIO']
+                 genera         barra   eta   qmin    qmax  smax          abajo_q          abajo_s  embalse      V0    Vmin     Vmax
+nodo                                                                                                                                
+LMAULE            False          None  0.00   0.00  100.00   inf     LOS_CONDORES     LOS_CONDORES     True  664.72    0.00  1453.41
+LOS_CONDORES       True      Ancoa220  6.50   0.00   26.11   inf         B_LaMina         B_LaMina    False     NaN     NaN      NaN
+B_LaMina          False          None  0.00   0.00    7.00   inf         B_M_Isla          LA_MINA    False     NaN     NaN      NaN
+LA_MINA            True  Pehuenche220  0.57   0.00   64.74   inf         B_M_Isla         B_M_Isla    False     NaN     NaN      NaN
+B_M_Isla          False          None  0.00   0.00   48.00   inf             ISLA          B_Maule    False     NaN     NaN      NaN
+CIPRESES           True   Cipreses154  2.62   0.00   40.00   inf         B_C_Isla    FILT_CIPRESES     True    7.68    0.00   174.66
+FILT_CIPRESES     False          None  0.00   0.00   20.10   inf     OJOS_DE_AGUA         B_C_Isla    False     NaN     NaN      NaN
+OJOS_DE_AGUA       True   Cipreses154  0.58   0.00   15.52  20.1         B_C_Isla         B_C_Isla    False     NaN     NaN      NaN
+B_C_Isla          False          None  0.00   0.00   50.00   inf             ISLA          B_Maule    False     NaN     NaN      NaN
+ISLA               True   Cipreses154  0.81   0.00   85.19   inf      CURILLINQUE          B_Maule    False     NaN     NaN      NaN
+CURILLINQUE        True   Cipreses154  1.01   0.00   83.76   inf        LOMA_ALTA          B_Maule    False     NaN     NaN      NaN
+LOMA_ALTA          True  Pehuenche220  0.45   0.00   80.67   inf          B_Maule          B_Maule    False     NaN     NaN      NaN
+B_Maule           False          None  0.00   0.00  140.00   inf        PEHUENCHE        CMNTronco    False     NaN     NaN      NaN
+Rio_Melado        False          None  0.00   0.00   25.30   inf         C_Melado        PEHUENCHE    False     NaN     NaN      NaN
+C_Melado          False          None  0.00   0.00   19.00   inf        RieMelado      LOS_HIERROS    False     NaN     NaN      NaN
+LOS_HIERROS        True  Pehuenche220  0.90   0.00   27.89   inf    LOS_HIERROS_2        PEHUENCHE    False     NaN     NaN      NaN
+LOS_HIERROS_2      True  Pehuenche220  0.21   0.00   28.57   inf        PEHUENCHE        PEHUENCHE    False     NaN     NaN      NaN
+RieMelado         False          None  0.00   0.00     inf   inf             None             None    False     NaN     NaN      NaN
+PEHUENCHE          True  Pehuenche220  1.78   0.00  305.22   inf         BCanelon        CMNTronco     True  116.19  106.58   133.64
+CMNTronco         False          None  0.00   0.00     inf   inf      BPasoNevado         BCanelon    False     NaN     NaN      NaN
+BPasoNevado       False          None  0.00   0.00   26.00   inf          RieCMNA       BPretilCol    False     NaN     NaN      NaN
+RieCMNA           False          None  0.00   0.00     inf   inf             None             None    False     NaN     NaN      NaN
+BCanelon          False          None  0.00   0.00  180.00   inf       BPretilCol           COLBUN    False     NaN     NaN      NaN
+BPretilCol        False          None  0.00   0.00   30.00   inf          RieCMNB     SAN_CLEMENTE    False     NaN     NaN      NaN
+RieCMNB           False          None  0.00   0.00     inf   inf             None             None    False     NaN     NaN      NaN
+COLBUN             True     Colbun220  1.53   0.00  309.80   inf        MACHICURA             None     True  565.18  381.62  1553.25
+SAN_CLEMENTE       True     Colbun220  0.32   0.00   16.98   inf      RieMaitenes      RieMaitenes    False     NaN     NaN      NaN
+RieMaitenes       False          None  0.00   0.00     inf   inf             None             None    False     NaN     NaN      NaN
+MACHICURA          True     Colbun220  0.33  56.36  272.73   inf    RieSur123SCDZ    RieSur123SCDZ    False     NaN     NaN      NaN
+RieSur123SCDZ     False          None  0.00   0.00     inf   inf             None      SAN_IGNACIO    False     NaN     NaN      NaN
+SAN_IGNACIO        True      Talca066  0.19   0.00  189.47   inf  RieMolinosOtros  RieMolinosOtros    False     NaN     NaN      NaN
+RieMolinosOtros   False          None  0.00   0.00     inf   inf             None             None    False     NaN     NaN      NaN
+######## celda 13 ########
+Horas del año: 8760  |  horas por bloque en la semana 1: [21. 21. 35. 63. 28.]
+                        HUMEDA  MEDIA  SECA
+CMg promedio [USD/MWh]                     
+Ancoa220                  29.1   32.5  36.6
+Cipreses154               27.2   30.4  34.3
+Colbun220                 29.1   32.5  36.6
+Pehuenche220              28.8   32.2  36.4
+Talca066                  31.3   34.9  39.2
+######## celda 15 ########
+                          bloque 1  bloque 2  bloque 3  bloque 4  bloque 5
+horas por semana (prom.)      22.8      22.8      38.0      68.4      30.4
+CMg Colbun220 [USD/MWh]       46.1      44.7      29.9      19.6      45.8
+######## celda 17 ########
+   escenario     anio  volumen_hm3  caudal_medio_m3s  posicion  Pe_%
+12    Húmedo  1992-93      10542.3             334.3        13  19.7
+32     Medio  1973-74       7736.4             245.3        33  50.0
+58      Seco  2010-11       4668.2             148.0        59  89.4
+######## celda 19 ########
+<Figure size 1100x360 with 1 Axes>
+######## celda 21 ########
+                          Afluente total de la cuenca SIN la Laguna del Maule [m3/s]
+CEN HUMEDA                                                            180.6         
+CEN MEDIA                                                             255.1         
+CEN SECA                                                              187.5         
+Histórico Húmedo 1992-93                                              320.0         
+Histórico Medio 1973-74                                               233.5         
+Histórico Seco 2010-11                                                138.1         
+######## celda 23 ########
+Filtración de La Invernada: 11.84 m3/s (constante)
+     demanda  natural Húmedo  déficit Húmedo  natural Medio  déficit Medio  natural Seco  déficit Seco
+mes                                                                                                   
+jul      0.0           265.1             0.0          285.8            0.0         122.9           0.0
+ago      0.0           195.6             0.0          208.2            0.0         140.2           0.0
+sep     32.0           278.2             0.0          186.8            0.0         161.3           0.0
+oct     80.0           411.0             0.0          277.5            0.0         305.9           0.0
+nov    145.6           623.4             0.0          430.5            0.0         268.1           0.0
+dic    160.0           556.8             0.0          340.2            0.0         143.8          20.3
+ene    160.0           312.1             0.0          224.8            0.0          88.3          71.7
+feb    128.0           170.8             0.0          140.0            2.1          73.4          54.6
+mar     88.0           118.0             0.0          108.5            0.0          66.0          22.0
+abr     48.0           120.6             0.0           98.4            0.0          84.2           0.0
+may     16.0           273.2             0.0          187.9            0.0          75.5           0.0
+jun      0.0           514.9             0.0          313.6            0.0         127.9           0.0
+######## celda 41 ########
+Set parameter Username
+Set parameter LicenseID to value 2872545
+Academic license - for non-commercial use only - expires 2027-10-07
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+Húmedo  1992-93: Q medio en B_Maule =  132.0 m3/s |   0.7 s | verificación OK
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+Medio   1973-74: Q medio en B_Maule =   95.1 m3/s |   1.5 s | verificación OK
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+Seco    2010-11: Q medio en B_Maule =   68.2 m3/s |   1.3 s | verificación OK
+escenario                               Húmedo        Medio        Seco
+año hidrológico                        1992-93      1973-74     2010-11
+Pe [%]                                19.69697         50.0   89.393939
+Q medio en B_Maule [m3/s]           131.952156    95.135888   68.196968
+Q natural en B_Maule [m3/s]         138.774093    98.051186   68.196968
+Q mínimo semanal [m3/s]               70.92456    58.458174    42.33868
+Q50 [m3/s]                           112.03237    98.347697   74.010516
+Q90 [m3/s]                           76.181476    48.918508   28.537184
+Energía [GWh]                     11377.795226  9589.587802  6657.38294
+Ingreso [MUSD]                      409.966089   380.285696  279.973578
+CMg obtenido [USD/MWh]               36.032121    39.656104     42.0546
+Demanda de riego [hm3]               2244.3264    2244.3264   2244.3264
+Riego entregado [hm3]                2244.3264    2244.3264   2244.3264
+Déficit de riego [hm3]                     0.0          0.0         0.0
+Generación desde la Laguna [hm3]         250.0        250.0  230.223616
+Riego desde la Laguna [hm3]                0.0     5.061331   66.213769
+Semanas en reserva ordinaria                 0            0           0
+Filtración no cubierta [hm3]               0.0          0.0         0.0
+Tiempo [s]                            0.680526     1.499744    1.308848
+Gap MIP                                    0.0     0.000071         0.0
+V final LMAULE [hm3]                 879.85891   756.659161    664.7223
+V final CIPRESES [hm3]                  7.6821       7.6821      7.6821
+V final PEHUENCHE [hm3]              133.64405    116.18582   116.18582
+V final COLBUN [hm3]                861.941259     565.1791    565.1791
+######## celda 43 ########
+Húmedo : caso base resuelto en 2 s | verificación OK
+Medio  : caso base resuelto en 2 s | verificación OK
+Seco   : caso base resuelto en 2 s | verificación OK
+                                  Caso base (miope)  Modelo (optimizado)  Diferencia
+Húmedo Q medio en B_Maule [m3/s]              132.2                132.0        -0.2
+       Q90 [m3/s]                              59.9                 76.2        16.3
+       Q mínimo semanal [m3/s]                 49.1                 70.9        21.8
+       Energía [GWh]                        10903.1              11377.8       474.7
+       Ingreso [MUSD]                         381.8                410.0        28.2
+       CMg obtenido [USD/MWh]                  35.0                 36.0         1.0
+       Déficit de riego [hm3]                   0.0                  0.0         0.0
+       V final LMAULE [hm3]                   879.9                879.9         0.0
+       V final COLBUN [hm3]                   700.8                861.9       161.1
+Medio  Q medio en B_Maule [m3/s]               95.4                 95.1        -0.2
+       Q90 [m3/s]                              36.4                 48.9        12.5
+       Q mínimo semanal [m3/s]                 31.0                 58.5        27.4
+       Energía [GWh]                         8954.0               9589.6       635.6
+       Ingreso [MUSD]                         326.9                380.3        53.4
+       CMg obtenido [USD/MWh]                  36.5                 39.7         3.1
+       Déficit de riego [hm3]                   0.0                  0.0         0.0
+       V final LMAULE [hm3]                   756.7                756.7         0.0
+       V final COLBUN [hm3]                   503.0                565.2        62.2
+Seco   Q medio en B_Maule [m3/s]               79.8                 68.2       -11.6
+       Q90 [m3/s]                              28.5                 28.5         0.0
+       Q mínimo semanal [m3/s]                 28.5                 42.3        13.8
+       Energía [GWh]                         7260.0               6657.4      -602.7
+       Ingreso [MUSD]                         264.1                280.0        15.9
+       CMg obtenido [USD/MWh]                  36.4                 42.1         5.7
+       Déficit de riego [hm3]                  35.3                  0.0       -35.3
+       V final LMAULE [hm3]                   305.8                664.7       358.9
+       V final COLBUN [hm3]                   381.6                565.2       183.6
+######## celda 45 ########
+<Figure size 1400x400 with 2 Axes><Figure size 700x360 with 1 Axes>
+######## celda 47 ########
+Resultados guardados en resultados_corrida\resultados_modelo_final_maule.xlsx
+
+######## celda 49 ########
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+           Ingreso con CMg MEDIA [MUSD]  Ingreso con CMg de su hidrología [MUSD]  CMg promedio de la hoja usada [USD/MWh]  Q medio B_Maule con CMg MEDIA  Q medio B_Maule con CMg de su hidrología
+escenario                                                                                                                                                                                         
+Húmedo                            410.0                                    372.3                                     29.1                          132.0                                     132.0
+Medio                             380.3                                    380.3                                     32.5                           95.1                                      95.1
+Seco                              280.0                                    308.0                                     36.6                           68.2                                      68.2
+######## celda 51 ########
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+   gasto máx. riego [m3/s] escenario  reserva ordinaria [hm3]  Q medio B_Maule [m3/s]  Q90 [m3/s]  Ingreso [MUSD]  Déficit de riego [hm3]  Semanas en reserva ordinaria
+0                    160.0     Medio                    340.0                    95.1        48.9           380.3                     0.0                             0
+1                    160.0      Seco                    340.0                    68.2        28.5           280.0                     0.0                             0
+2                    200.0     Medio                    500.0                    97.3        58.7           383.4                     0.0                            13
+3                    200.0      Seco                    500.0                    68.2        28.5           272.7                     0.0                            16
+######## celda 53 ########
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+                                  Sin Convenio  Con Convenio  Diferencia
+Húmedo Q medio en B_Maule [m3/s]         138.8         132.0        -6.8
+       Q50 [m3/s]                        125.1         112.0       -13.1
+       Q90 [m3/s]                         82.3          76.2        -6.1
+       Q mínimo semanal [m3/s]            76.4          70.9        -5.4
+       Ingreso [MUSD]                    428.0         410.0       -18.0
+       Déficit de riego [hm3]              0.0           0.0         0.0
+       V final LMAULE [hm3]              664.7         879.9       215.1
+Medio  Q medio en B_Maule [m3/s]          98.1          95.1        -2.9
+       Q50 [m3/s]                         99.1          98.3        -0.8
+       Q90 [m3/s]                         52.2          48.9        -3.3
+       Q mínimo semanal [m3/s]            68.4          58.5        -9.9
+       Ingreso [MUSD]                    391.5         380.3       -11.2
+       Déficit de riego [hm3]              0.0           0.0         0.0
+       V final LMAULE [hm3]              664.7         756.7        91.9
+Seco   Q medio en B_Maule [m3/s]          68.2          68.2        -0.0
+       Q50 [m3/s]                         76.4          74.0        -2.4
+       Q90 [m3/s]                         28.5          28.5         0.0
+       Q mínimo semanal [m3/s]            38.8          42.3         3.5
+       Ingreso [MUSD]                    281.4         280.0        -1.4
+       Déficit de riego [hm3]              0.0           0.0         0.0
+       V final LMAULE [hm3]              664.7         664.7         0.0
+######## celda 55 ########
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+1960-61 89.4 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+1961-62 132.3 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+1962-63 75.6 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+1963-64 139.9 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+1964-65 86.8 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+1965-66 149.5 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+1966-67 134.2 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+1967-68 83.0 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+1968-69 48.3 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+1969-70 93.8 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+1970-71 79.1 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+1971-72 115.3 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+1972-73 168.6 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+1973-74 95.1 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+1974-75 117.3 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+1975-76 105.2 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+1976-77 85.4 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+1977-78 141.4 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+1978-79 154.6 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+1979-80 158.6 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+1980-81 134.6 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+1981-82 101.7 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+1982-83 177.6 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+1983-84 98.5 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+1984-85 148.6 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+1985-86 114.1 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+1986-87 130.8 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+1987-88 119.0 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+1988-89 86.4 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+1989-90 78.3 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+1990-91 94.7 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+1991-92 115.2 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+1992-93 132.0 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+1993-94 102.8 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+1994-95 108.7 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+1995-96 114.6 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+1996-97 67.2 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+1997-98 140.7 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+1998-99 40.5 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+1999-00 100.2 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+2000-01 128.1 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+2001-02 132.0 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+2002-03 154.9 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+2003-04 89.1 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+2004-05 96.3 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+2005-06 162.1 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+2006-07 141.3 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+2007-08 97.0 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+2008-09 99.5 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+2009-10 107.2 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+2010-11 68.2 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+2011-12 85.7 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+2012-13 60.7 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+2013-14 74.9 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+2014-15 86.5 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+2015-16 101.4 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+2016-17 86.5 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+2017-18 76.2 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+2018-19 82.0 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+2019-20 51.9 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+2020-21 76.7 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+2021-22 51.4 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+2022-23 76.7 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+2023-24 147.7 m3/s
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+2024-25 94.3 m3/s
+       Pe [%]  Q medio en B_Maule [m3/s]  Q natural en B_Maule [m3/s]  Q90 [m3/s]  Ingreso [MUSD]  Déficit de riego [hm3]
+count    65.0                       65.0                         65.0        65.0            65.0                    65.0
+mean     50.0                      106.0                        109.2        56.7           356.8                     0.0
+std      28.6                       31.8                         35.1        23.7            56.5                     0.0
+min       1.5                       40.5                         40.5        18.5           180.2                     0.0
+10%      11.2                       70.9                         70.9        30.0           282.6                     0.0
+50%      50.0                      100.2                        101.4        52.3           369.5                     0.0
+90%      88.8                      149.1                        157.7        91.7           411.2                     0.0
+max      98.5                      177.6                        190.1       106.1           431.3                     0.0
+######## celda 57 ########
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+Caudal de diseño Q50 = 97.8 m3/s, rendimiento supuesto = 0.45
+                            Húmedo                        Medio                         Seco                      65 años
+                            Modelo   Miope Sin Convenio  Modelo   Miope Sin Convenio  Modelo   Miope Sin Convenio  Modelo
+Potencia [MW]                44.00   44.00        44.00   44.00   44.00        44.00   44.00   44.00        44.00   44.00
+Generación [GWh]            364.72  348.02       371.74  331.82  317.56       339.84  262.64  276.38       263.51  325.75
+Ingreso [MUSD]               12.04   11.17        12.23   11.51   10.26        11.79    9.24    8.55         9.34   11.00
+Factor de planta              0.95    0.90         0.96    0.86    0.82         0.88    0.68    0.72         0.68    0.85
+Precio capturado [USD/MWh]   33.01   32.10        32.89   34.70   32.31        34.69   35.17   30.93        35.45   33.99
+Tiempo a plena carga [%]     76.26   69.44        83.30   51.62   48.09        54.79   12.58   33.08        10.89   50.02
+Tiempo con Q < 0,3 Qd [%]     0.00    0.00         0.00    0.00    1.60         0.00   10.94   12.64        10.94    3.35                               Q90     Q70     Q50  Q medio     Q30
+Potencia [MW]                19.05   36.30   44.00    47.68   52.41
+Generación [GWh]            162.90  284.16  325.75   340.03  354.03
+Ingreso [MUSD]                5.29    9.51   11.00    11.49   11.94
+Factor de planta              0.98    0.89    0.85     0.81    0.77
+Precio capturado [USD/MWh]   32.52   33.63   33.99    34.02   33.97
+Tiempo a plena carga [%]     90.00   70.19   50.02    38.90   30.01
+Tiempo con Q < 0,3 Qd [%]     0.00    1.41    3.35     4.32    5.87
+Qd [m3/s]                    42.34   80.67   97.77   105.96  116.46
+Ingreso p10 [MUSD]            5.14    8.67    9.32     9.41    9.50
+Ingreso p90 [MUSD]            5.38   10.20   12.24    13.10   14.00
+######## celda 59 ########
+guardada: e2_anios_pe.pdf
+guardada: e2_operacion.pdf
+guardada: e2_miope_seco.pdf
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+Set parameter TimeLimit to value 600
+Set parameter MIPGap to value 0.0001
+guardada: e2_q_con_sin.pdf
+guardada: e2_duracion.pdf
+guardada: e2_nueva_central.pdf

@@ -1,0 +1,7 @@
+jupyter
+nbconvert
+numpy
+pandas
+openpyxl
+matplotlib
+gurobipy==13.0.3
