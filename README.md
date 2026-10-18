@@ -9,9 +9,9 @@ dos corridas distintas:
 
 Repositorio: https://github.com/Jerrazuriz/Capstone
 
-- `Modelo_Final_Maule_revisado.ipynb` es el código fuente, sin depender de sus
+- `Modelo_Final_Maule_C2_corregido.ipynb` es el código fuente, sin depender de sus
   salidas guardadas.
-- `resultados_corrida\Modelo_Final_Maule_revisado_ejecutado.ipynb` es una copia
+- `resultados_corrida\Modelo_Final_Maule_C2_corregido_ejecutado.ipynb` es una copia
   del mismo notebook después de ejecutar todas sus celdas; conserva las tablas,
   gráficos y mensajes de esa corrida como evidencia reproducible.
 
@@ -42,7 +42,7 @@ credenciales WLS dentro del notebook ni del repositorio.
 
 ```text
 .
-├── Modelo_Final_Maule_revisado.ipynb
+├── Modelo_Final_Maule_C2_corregido.ipynb
 ├── requirements.txt
 ├── data
 │   ├── CaudalesHistoricos.xlsx
@@ -51,7 +51,7 @@ credenciales WLS dentro del notebook ni del repositorio.
 │   ├── plpcnfce.dat
 │   └── po12meses_jul26.xlsx
 └── resultados_corrida
-    ├── Modelo_Final_Maule_revisado_ejecutado.ipynb
+    ├── Modelo_Final_Maule_C2_corregido_ejecutado.ipynb
     ├── resultados_modelo_final_maule.xlsx
     ├── resultados_65_anios.xlsx
     ├── RESUMEN_corrida.md
@@ -69,8 +69,8 @@ Abrir PowerShell en la carpeta que contiene este README y ejecutar:
 
 ```powershell
 py -3.11 -m jupyter nbconvert --to notebook --execute `
-  .\Modelo_Final_Maule_revisado.ipynb `
-  --output .\resultados_corrida\Modelo_Final_Maule_revisado_ejecutado.ipynb `
+  .\Modelo_Final_Maule_C2_corregido.ipynb `
+  --output .\resultados_corrida\Modelo_Final_Maule_C2_corregido_ejecutado.ipynb `
   --ExecutePreprocessor.timeout=1800 `
   --ExecutePreprocessor.kernel_name=python3
 ```
@@ -84,7 +84,7 @@ ejecutada. El notebook fuente no se reemplaza. La corrida genera o actualiza:
   histórica de 65 años.
 - `resultados_corrida\figures_informe\e2_*.pdf`: seis figuras para el informe.
 - `resultados_corrida\log_corrida.txt`: salida textual completa de la corrida.
-- `resultados_corrida\Modelo_Final_Maule_revisado_ejecutado.ipynb`: notebook
+- `resultados_corrida\Modelo_Final_Maule_C2_corregido_ejecutado.ipynb`: notebook
   con las celdas ejecutadas y sus resultados.
 
 ## Resultados principales
@@ -94,24 +94,24 @@ La corrida usa CMg medio y gasto de riego de `160 m³/s` en tres escenarios:
 | Indicador | Húmedo 1992-93 | Medio 1973-74 | Seco 2010-11 |
 |---|---:|---:|---:|
 | Percentil de excedencia (`Pe`) | 19,7 % | 50,0 % | 89,4 % |
-| Caudal medio en `B_Maule` | 132,0 m³/s | 95,1 m³/s | 68,2 m³/s |
-| Caudal mínimo semanal | 70,9 m³/s | 58,5 m³/s | 42,3 m³/s |
-| Energía | 11.378 GWh | 9.590 GWh | 6.657 GWh |
-| Ingreso | 410,0 MUSD | 380,3 MUSD | 280,0 MUSD |
+| Caudal medio en `B_Maule` | 135,9 m³/s | 98,1 m³/s | 68,2 m³/s |
+| Caudal mínimo semanal | 70,9 m³/s | 68,8 m³/s | 42,3 m³/s |
+| Energía | 11.725 GWh | 9.890 GWh | 6.643 GWh |
+| Ingreso | 421,1 MUSD | 391,3 MUSD | 280,0 MUSD |
 | Déficit de riego | 0 hm³ | 0 hm³ | 0 hm³ |
-| Volumen final en `LMAULE` | 879,9 hm³ | 756,7 hm³ | 664,7 hm³ |
+| Volumen final en `LMAULE` | 754,9 hm³ | 664,7 hm³ | 664,7 hm³ |
 
 Para la serie completa de 65 años (1960-61 a 2024-25), el caudal medio en
-`B_Maule` es `106,0 m³/s`, el ingreso medio es `356,8 MUSD` y el déficit de
+`B_Maule` es `107,9 m³/s`, el ingreso medio es `363,4 MUSD` y el déficit de
 riego es `0 hm³` en todos los años. El año mínimo es 1998-99
-(`40,5 m³/s`) y el máximo es 1982-83 (`177,6 m³/s`).
+(`40,5 m³/s`) y el máximo es 1982-83 (`181,6 m³/s`).
 
-Para la nueva central, usando `Qd = Q50 = 97,8 m³/s` y rendimiento supuesto
+Para la nueva central, usando `Qd = Q50 = 99,4 m³/s` y rendimiento supuesto
 `η = 0,45`, el resultado para 65 años es:
 
-- Potencia: `44,0 MW`.
-- Generación: `325,8 GWh/año`.
-- Ingreso: `11,0 MUSD/año`.
+- Potencia: `44,7 MW`.
+- Generación: `331,3 GWh/año`.
+- Ingreso: `11,2 MUSD/año`.
 - Factor de planta: `0,85`.
 
 ## Verificación de la corrida
