@@ -21,7 +21,10 @@ Repositorio: https://github.com/Jerrazuriz/Capstone
 - Python 3.11 (se usó Python 3.11.7).
 - Las dependencias listadas en `requirements.txt`.
 - Una licencia activa de Gurobi. La corrida registrada se realizó con
-  Gurobi 13.0.3 y licencia académica.
+  Gurobi 13.0.3 y licencia académica. **Sin licencia** el notebook igual corre:
+  la celda *Solver* (sección 0) detecta la licencia restringida de `pip`, exporta
+  el mismo modelo a MPS y lo resuelve con HiGHS (`pip install highspy`), con los
+  mismos caudales y volúmenes.
 
 El entorno que se utilizó ya tenía instalados los paquetes requeridos. En una
 instalación nueva, se puede preparar un entorno virtual con:
@@ -54,6 +57,7 @@ credenciales WLS dentro del notebook ni del repositorio.
     ├── Modelo_Final_Maule_C2_corregido_ejecutado.ipynb
     ├── resultados_modelo_final_maule.xlsx
     ├── resultados_65_anios.xlsx
+    ├── sensibilidades_borde.xlsx
     ├── RESUMEN_corrida.md
     ├── log_corrida.txt
     └── figures_informe
@@ -82,7 +86,24 @@ ejecutada. El notebook fuente no se reemplaza. La corrida genera o actualiza:
   escenarios, sensibilidades y comparaciones.
 - `resultados_corrida\resultados_65_anios.xlsx`: resultados de la serie
   histórica de 65 años.
-- `resultados_corrida\figures_informe\e2_*.pdf`: seis figuras para el informe.
+- `resultados_corrida\sensibilidades_borde.xlsx`: sensibilidades a las condiciones
+  de borde de la sección 11d (miope con condición terminal, sin condición terminal,
+  volumen inicial de la Laguna, filtración y uso previo de la cuota 2026).
+- `resultados_corrida\figures_informe\*.pdf`: todas las figuras del informe final,
+  con el mismo nombre que usa el `.tex`:
+
+  | Archivo | Figura del informe | Sección del notebook |
+  |---|---|---|
+  | `e2_anios_pe.pdf` | Años por probabilidad de excedencia (`fig:anios_pe`) | 5 |
+  | `e3_caudal_natural.pdf` | Caudal natural en B_Maule por origen y variabilidad (`fig:caudal_natural`) | 5 |
+  | `e2_operacion.pdf` | Caudal en B_Maule y volumen de la Laguna (`fig:operacion`) | 9 |
+  | `e3_miope_terminal.pdf` | Año seco: modelo, miope y miope con V_final ≥ V_inicial (`fig:miope`) | 9 y 11d |
+  | `e2_q_con_sin.pdf` | Caudal sin y con Convenio (`fig:con_sin`) | 11c |
+  | `e2_duracion.pdf` | Curva de duración (`fig:duracion`) | 12 |
+  | `e3_sensibilidades.pdf` | Sensibilidad a las condiciones de borde (`fig:sensibilidades`) | 11d |
+  | `e2_nueva_central.pdf` | Nueva central | 12b |
+
+  Todas se generan en la sección 12c; basta copiarlas a `figures/` en Overleaf.
 - `resultados_corrida\log_corrida.txt`: salida textual completa de la corrida.
 - `resultados_corrida\Modelo_Final_Maule_C2_corregido_ejecutado.ipynb`: notebook
   con las celdas ejecutadas y sus resultados.
