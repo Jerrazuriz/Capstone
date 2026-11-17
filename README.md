@@ -3,9 +3,9 @@
 Código computacional del modelo de operación de la cuenca del Maule y
 evaluación de una nueva central en el nodo `B_Maule`.
 
-Esta carpeta está preparada como entregable final. Contiene una sola corrida:
-la realizada el 18-10-2026. El notebook fuente y el notebook ejecutado no son
-dos corridas distintas:
+Esta carpeta está preparada como entregable final del capstone. Contiene una
+sola corrida, la del 17-11-2026 (ver *Verificación de la corrida*). El notebook
+fuente y el notebook ejecutado no son dos corridas distintas:
 
 Repositorio: https://github.com/Jerrazuriz/Capstone
 
@@ -15,6 +15,21 @@ Repositorio: https://github.com/Jerrazuriz/Capstone
   del mismo notebook después de ejecutar todas sus celdas; conserva las tablas,
   gráficos y mensajes de esa corrida como evidencia reproducible.
 
+## Qué incluye la versión final
+
+- **Modelo de operación** de la cuenca (48 semanas × 5 bloques, Convenio de 1947
+  con la cuota C2 por año calendario) y verificación independiente de cada solución.
+- **Caso base comparable** (sección 9): operación secuencial con objetivo
+  semanal, con las mismas condiciones de borde que el modelo (`V_final ≥ V_inicial`
+  y riego sin déficit). Reemplaza al miope puro de la entrega anterior, que no era
+  comparable porque vaciaba la Laguna o dejaba riego sin cubrir.
+- **Análisis de sensibilidad** (secciones 11a–11e): precios, gasto de riego,
+  Convenio, condiciones de borde (condición terminal, valor del agua, volumen
+  inicial, filtración, uso previo de la cuota) y políticas de operación, con un
+  resumen por factor y gráfico tipo tornado.
+- **Serie de 65 años** y **nueva central** en `B_Maule`, con sensibilidad de su
+  ingreso a η, caudal de diseño, precios, hidrología y operación aguas arriba.
+
 ## Requisitos
 
 - Windows 10/11.
@@ -23,8 +38,8 @@ Repositorio: https://github.com/Jerrazuriz/Capstone
 - Una licencia activa de Gurobi. La corrida registrada se realizó con
   Gurobi 13.0.3 y licencia académica. **Sin licencia** el notebook igual corre:
   la celda *Solver* (sección 0) detecta la licencia restringida de `pip`, exporta
-  el mismo modelo a MPS y lo resuelve con HiGHS (`pip install highspy`), con los
-  mismos caudales y volúmenes.
+  el mismo modelo a MPS y lo resuelve con HiGHS (`highspy`, incluido en
+  `requirements.txt`), con los mismos caudales y volúmenes.
 
 El entorno que se utilizó ya tenía instalados los paquetes requeridos. En una
 instalación nueva, se puede preparar un entorno virtual con:
@@ -86,9 +101,11 @@ ejecutada. El notebook fuente no se reemplaza. La corrida genera o actualiza:
   escenarios, sensibilidades y comparaciones.
 - `resultados_corrida\resultados_65_anios.xlsx`: resultados de la serie
   histórica de 65 años.
-- `resultados_corrida\sensibilidades_borde.xlsx`: sensibilidades a las condiciones
-  de borde de la sección 11d (miope con condición terminal, sin condición terminal,
-  volumen inicial de la Laguna, filtración y uso previo de la cuota 2026).
+- `resultados_corrida\sensibilidades_borde.xlsx`: sensibilidades de la sección 11d
+  (políticas de operación, condición terminal, valor del agua, volumen inicial de
+  la Laguna, filtración, uso previo de la cuota 2026, precios, gasto de riego y
+  Convenio) y el resumen por factor de la 11e (hojas `tornado_rangos` y
+  `deltas_vs_modelo`).
 - `resultados_corrida\figures_informe\*.pdf`: todas las figuras del informe final,
   con el mismo nombre que usa el `.tex`:
 
@@ -102,6 +119,8 @@ ejecutada. El notebook fuente no se reemplaza. La corrida genera o actualiza:
   | `e2_duracion.pdf` | Curva de duración (`fig:duracion`) | 12 |
   | `e3_sensibilidades.pdf` | Sensibilidad a las condiciones de borde (`fig:sensibilidades`) | 11d |
   | `e2_nueva_central.pdf` | Nueva central | 12b |
+  | `e3_tornado.pdf` | Rango del cambio en Q medio y Q90 por factor (`fig:tornado`) | 11e |
+  | `e3_tornado_central.pdf` | Sensibilidad del ingreso de la nueva central (`fig:tornado_central`) | 12b |
 
   Todas se generan en la sección 12c; basta copiarlas a `figures/` en Overleaf.
 - `resultados_corrida\log_corrida.txt`: salida textual completa de la corrida.
@@ -122,6 +141,23 @@ La corrida usa CMg medio y gasto de riego de `160 m³/s` en tres escenarios:
 | Déficit de riego | 0 hm³ | 0 hm³ | 0 hm³ |
 | Volumen final en `LMAULE` | 754,9 hm³ | 664,7 hm³ | 664,7 hm³ |
 
+Contra el caso base secuencial (mismas condiciones de borde), el modelo entrega
+el mismo caudal medio, pero más estable y con más ingreso:
+
+| Indicador (caso base → modelo) | Húmedo | Medio | Seco |
+|---|---:|---:|---:|
+| Caudal medio en `B_Maule` | 135,9 → 135,9 | 98,1 → 98,1 | 68,2 → 68,2 |
+| `Q90` | 74,8 → 79,0 | 50,0 → 52,2 | 26,7 → 28,5 |
+| Caudal mínimo semanal | 58,6 → 70,9 | 31,0 → 68,8 | 28,5 → 42,3 |
+| Ingreso [MUSD] | 404,8 → 421,1 | 346,1 → 391,3 | 232,7 → 280,0 |
+
+En el análisis de sensibilidad, el caudal medio en `B_Maule` cambia a lo más
+~4 m³/s en los años húmedo y medio. En el año seco solo lo suben los casos que
+dejan terminar la Laguna bajo su volumen inicial: sin condición terminal
+(+5,5 a +7,1 m³/s, Laguna en 447–500 hm³) y el miope puro (+13,6 m³/s, Laguna
+en 243 hm³). Es agua prestada del año siguiente, no agua que produce la cuenca. El
+detalle está en `resultados_corrida\RESUMEN_corrida.md`.
+
 Para la serie completa de 65 años (1960-61 a 2024-25), el caudal medio en
 `B_Maule` es `107,9 m³/s`, el ingreso medio es `363,4 MUSD` y el déficit de
 riego es `0 hm³` en todos los años. El año mínimo es 1998-99
@@ -134,14 +170,23 @@ Para la nueva central, usando `Qd = Q50 = 99,4 m³/s` y rendimiento supuesto
 - Generación: `331,3 GWh/año`.
 - Ingreso: `11,2 MUSD/año`.
 - Factor de planta: `0,85`.
+- Sensibilidad del ingreso (un supuesto a la vez): CMg ±20 % → 9,0–13,4;
+  hidrología p10–p90 → 9,3–12,5; η 0,40–0,50 → 10,0–12,4; `Qd` entre `Q70` y
+  `Q30` → 9,8–12,2 MUSD/año.
 
 ## Verificación de la corrida
 
-La ejecución local fue realizada el 18-10-2026 con Python 3.11.7,
-`gurobipy 13.0.3` y licencia académica vigente. El notebook se ejecutó sin
-errores después de corregir la detección de la carpeta local `data\`. La
-salida completa y los tiempos por celda quedan registrados en
-`resultados_corrida\log_corrida.txt`.
+La corrida registrada en `resultados_corrida\` se ejecutó el 17-11-2026 con
+Python 3.13, `gurobipy 13.0.3` (licencia restringida de `pip`) y **HiGHS 1.16**
+como solver, mediante el respaldo automático de la sección 0. Todas las
+soluciones pasan la verificación independiente. Los resultados del modelo, de
+las sensibilidades y de los 65 años coinciden con la corrida anterior hecha con
+Gurobi; en los casos secuenciales (caso base y miope) el ingreso puede diferir
+en algunos MUSD entre solvers por soluciones alternativas semana a semana.
+
+Para dejar la corrida oficial con Gurobi, basta ejecutar el comando de la
+sección *Ejecución reproducible* con la licencia académica activa y volver a
+subir la carpeta `resultados_corrida\`.
 
 Los archivos de `resultados_corrida\` son exclusivamente productos de la
 última ejecución y sirven para revisar tablas y figuras sin volver a resolver

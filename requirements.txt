@@ -5,3 +5,4 @@ pandas
 openpyxl
 matplotlib
 gurobipy==13.0.3
+highspy        # solver libre de respaldo si no hay licencia completa de Gurobi
