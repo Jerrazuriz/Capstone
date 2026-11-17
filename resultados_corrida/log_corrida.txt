@@ -1,9 +1,8 @@
-[NbConvertApp] Converting notebook Modelo_Final_Maule_C2_corregido.ipynb to notebook
-[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
-Running HiGHS 1.16.0 (git hash: f3f113d): Copyright (c) 2026 under MIT licence terms
-Includes third-party software components, see THIRD_PARTY_NOTICES.md for full details
-[NbConvertApp] Writing 863352 bytes to resultados_corrida/Modelo_Final_Maule_C2_corregido_ejecutado.ipynb
-
-real	5m1.592s
-user	5m52.480s
-sys	0m1.854s
+[NbConvertApp] Converting notebook .\Modelo_Final_Maule_C2_corregido.ipynb to notebook
+C:\Users\Joaquin Errazuriz B\AppData\Local\Programs\Python\Python311\Lib\site-packages\zmq\_future.py:693: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+0.02s - Debugger warning: It seems that frozen modules are being used, which may
+0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+0.00s - to python to disable frozen modules.
+0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+[NbConvertApp] Writing 544382 bytes to resultados_corrida\Modelo_Final_Maule_C2_corregido_ejecutado.ipynb
