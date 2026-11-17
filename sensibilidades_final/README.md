@@ -25,6 +25,11 @@ base. Con HiGHS reproduce exactamente la corrida de Gurobi del 18-10-2026 (135,9
 notebook también (136,2 / 99,3 / 81,8). Las 33 soluciones pasan la verificación
 independiente del notebook.
 
+Una diferencia menor: el **ingreso** del miope sale 405,3 / 350,0 / 269,1 MUSD con HiGHS frente
+a 402,3 / 347,1 / 268,9 con Gurobi. Cada semana del miope tiene soluciones alternativas con
+el mismo ingreso semanal, y cada solver elige una distinta, lo que cambia levemente las
+semanas siguientes. Los caudales (promedio, Q90, mínimo) y los volúmenes finales coinciden.
+
 ## Qué corre
 
 | Grupo | Caso | Cómo se implementa |

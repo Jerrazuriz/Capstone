@@ -22,11 +22,11 @@ Includes third-party software components, see THIRD_PARTY_NOTICES.md for full de
   Miope con V_final >= V_inicial             Seco    Q=  68.2  Q90= 26.7  Qmin= 28.5  Vf= 664.7  OK
 2. Condición terminal
   Sin condición terminal                     Húmedo  Q= 136.2  Q90= 79.0  Qmin= 70.9  Vf= 754.9  OK
-  Sin condición terminal, con valor del agua Húmedo  Q= 118.7  Q90= 32.8  Qmin= 26.3  Vf=1129.9  OK
+  Sin condición terminal, con valor del agua Húmedo  Q= 132.7  Q90= 71.0  Qmin= 70.9  Vf= 777.8  OK
   Sin condición terminal                     Medio   Q=  99.3  Q90= 60.9  Qmin= 69.9  Vf= 631.7  OK
-  Sin condición terminal, con valor del agua Medio   Q=  81.8  Q90= 20.5  Qmin= 17.3  Vf=1011.7  OK
+  Sin condición terminal, con valor del agua Medio   Q=  98.7  Q90= 52.2  Qmin= 69.9  Vf= 640.1  OK
   Sin condición terminal                     Seco    Q=  75.3  Q90= 38.8  Qmin= 47.7  Vf= 447.2  OK
-  Sin condición terminal, con valor del agua Seco    Q=  53.5  Q90= 17.4  Qmin= 14.8  Vf= 961.2  OK
+  Sin condición terminal, con valor del agua Seco    Q=  73.7  Q90= 36.0  Qmin= 47.7  Vf= 500.0  OK
 3. Volumen inicial de la Laguna (la condición terminal sigue siendo V_final >= V_inicial)
   V inicial Laguna = 400 hm3                 Húmedo  Q= 135.6  Q90= 76.2  Qmin= 70.6  Vf= 500.3  OK
   V inicial Laguna = 400 hm3                 Medio   Q=  95.9  Q90= 51.8  Qmin= 58.5  Vf= 469.0  OK
@@ -49,5 +49,5 @@ Includes third-party software components, see THIRD_PARTY_NOTICES.md for full de
   Uso previo 250 hm3                         Medio   Q=  95.1  Q90= 51.8  Qmin= 58.4  Vf= 756.7  OK
   Uso previo 250 hm3                         Seco    Q=  68.2  Q90= 31.8  Qmin= 38.2  Vf= 664.7  OK
 
-Listo en 135 s. Resultados en /home/user/Capstone/sensibilidades_final/resultados
+Listo en 141 s. Resultados en /home/user/Capstone/sensibilidades_final/resultados
 Valor del agua usado en 2b [USD/hm3]: {'LMAULE': 94098, 'CIPRESES': 57511, 'PEHUENCHE': 15933, 'COLBUN': 16815}

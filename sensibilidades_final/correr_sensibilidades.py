@@ -220,6 +220,7 @@ def con_valor_agua(M):
     sin_condicion_terminal(M)
     va = valor_agua_hm3()
     m = M["m"]
+    m.update()                                   # sin update, getObjective() no ve el objetivo recién definido
     m.setObjective(m.getObjective() + gp.quicksum(va[e] * M["V"][e, NT - 1] for e in EMBALSES), GRB.MAXIMIZE)
     M["valor_agua"] = va
     return M
