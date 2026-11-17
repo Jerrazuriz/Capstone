@@ -1,0 +1,53 @@
+gurobipy (13, 0, 3)
+Archivos encontrados: ['plpcnfce.dat', 'plpbar.dat', 'po12meses_jul26.xlsx', 'CaudalesHistoricos.xlsx']
+Gasto 160 m3/s -> reserva ordinaria 340 hm3, porción superior desde 510 hm3
+Embalses: ['LMAULE', 'CIPRESES', 'PEHUENCHE', 'COLBUN']
+Centrales: ['LOS_CONDORES', 'LA_MINA', 'CIPRESES', 'OJOS_DE_AGUA', 'ISLA', 'CURILLINQUE', 'LOMA_ALTA', 'LOS_HIERROS', 'LOS_HIERROS_2', 'PEHUENCHE', 'COLBUN', 'SAN_CLEMENTE', 'MACHICURA', 'SAN_IGNACIO']
+Horas del año: 8760  |  horas por bloque en la semana 1: [21. 21. 35. 63. 28.]
+Filtración de La Invernada: 11.84 m3/s (constante)
+Restricted license - for non-production use only - expires 2027-11-29
+gurobipy (13, 0, 3) | solver: highs
+0. Modelo base (debe reproducir la corrida del 18-10: 135,9 / 98,1 / 68,2)
+Running HiGHS 1.16.0 (git hash: f3f113d): Copyright (c) 2026 under MIT licence terms
+Includes third-party software components, see THIRD_PARTY_NOTICES.md for full details
+  Modelo optimizado (base)                   Húmedo  Q= 135.9  Q90= 79.0  Qmin= 70.9  Vf= 754.9  OK
+  Modelo optimizado (base)                   Medio   Q=  98.1  Q90= 52.2  Qmin= 68.8  Vf= 664.7  OK
+  Modelo optimizado (base)                   Seco    Q=  68.2  Q90= 28.5  Qmin= 42.3  Vf= 664.7  OK
+1. Caso base miope
+  Miope (notebook, sin condición terminal)   Húmedo  Q= 136.2  Q90= 74.8  Qmin= 58.6  Vf= 754.9  OK
+  Miope con V_final >= V_inicial             Húmedo  Q= 135.9  Q90= 74.8  Qmin= 58.6  Vf= 754.9  OK
+  Miope (notebook, sin condición terminal)   Medio   Q=  99.3  Q90= 52.2  Qmin= 31.0  Vf= 631.7  OK
+  Miope con V_final >= V_inicial             Medio   Q=  98.1  Q90= 50.0  Qmin= 31.0  Vf= 664.7  OK
+  Miope (notebook, sin condición terminal)   Seco    Q=  81.8  Q90= 30.0  Qmin= 29.8  Vf= 243.1  OK
+  Miope con V_final >= V_inicial             Seco    Q=  68.2  Q90= 26.7  Qmin= 28.5  Vf= 664.7  OK
+2. Condición terminal
+  Sin condición terminal                     Húmedo  Q= 136.2  Q90= 79.0  Qmin= 70.9  Vf= 754.9  OK
+  Sin condición terminal, con valor del agua Húmedo  Q= 118.7  Q90= 32.8  Qmin= 26.3  Vf=1129.9  OK
+  Sin condición terminal                     Medio   Q=  99.3  Q90= 60.9  Qmin= 69.9  Vf= 631.7  OK
+  Sin condición terminal, con valor del agua Medio   Q=  81.8  Q90= 20.5  Qmin= 17.3  Vf=1011.7  OK
+  Sin condición terminal                     Seco    Q=  75.3  Q90= 38.8  Qmin= 47.7  Vf= 447.2  OK
+  Sin condición terminal, con valor del agua Seco    Q=  53.5  Q90= 17.4  Qmin= 14.8  Vf= 961.2  OK
+3. Volumen inicial de la Laguna (la condición terminal sigue siendo V_final >= V_inicial)
+  V inicial Laguna = 400 hm3                 Húmedo  Q= 135.6  Q90= 76.2  Qmin= 70.6  Vf= 500.3  OK
+  V inicial Laguna = 400 hm3                 Medio   Q=  95.9  Q90= 51.8  Qmin= 58.5  Vf= 469.0  OK
+  V inicial Laguna = 400 hm3                 Seco    Q=  68.2  Q90= 29.2  Qmin= 46.5  Vf= 400.0  OK
+  V inicial Laguna = 510 hm3                 Húmedo  Q= 135.9  Q90= 79.0  Qmin= 70.9  Vf= 600.1  OK
+  V inicial Laguna = 510 hm3                 Medio   Q=  98.1  Q90= 52.2  Qmin= 68.8  Vf= 510.0  OK
+  V inicial Laguna = 510 hm3                 Seco    Q=  68.2  Q90= 28.5  Qmin= 42.3  Vf= 510.0  OK
+  V inicial Laguna = 900 hm3                 Húmedo  Q= 135.9  Q90= 79.0  Qmin= 70.9  Vf= 990.1  OK
+  V inicial Laguna = 900 hm3                 Medio   Q=  98.1  Q90= 52.2  Qmin= 68.8  Vf= 900.0  OK
+  V inicial Laguna = 900 hm3                 Seco    Q=  68.2  Q90= 28.5  Qmin= 42.3  Vf= 900.0  OK
+4. Filtración de La Invernada
+  Sin filtración (0 m3/s)                    Húmedo  Q= 135.9  Q90= 82.1  Qmin= 70.0  Vf= 754.9  OK
+  Sin filtración (0 m3/s)                    Medio   Q=  98.1  Q90= 52.5  Qmin= 61.9  Vf= 664.7  OK
+  Sin filtración (0 m3/s)                    Seco    Q=  68.2  Q90= 20.0  Qmin= 40.4  Vf= 664.7  OK
+5. Uso previo de la cuota 2026
+  Uso previo 0 hm3                           Húmedo  Q= 138.8  Q90= 82.1  Qmin= 86.2  Vf= 664.7  OK
+  Uso previo 0 hm3                           Medio   Q=  98.1  Q90= 52.2  Qmin= 68.8  Vf= 664.7  OK
+  Uso previo 0 hm3                           Seco    Q=  68.2  Q90= 28.5  Qmin= 42.3  Vf= 664.7  OK
+  Uso previo 250 hm3                         Húmedo  Q= 132.0  Q90= 72.8  Qmin= 60.1  Vf= 879.9  OK
+  Uso previo 250 hm3                         Medio   Q=  95.1  Q90= 51.8  Qmin= 58.4  Vf= 756.7  OK
+  Uso previo 250 hm3                         Seco    Q=  68.2  Q90= 31.8  Qmin= 38.2  Vf= 664.7  OK
+
+Listo en 135 s. Resultados en /home/user/Capstone/sensibilidades_final/resultados
+Valor del agua usado en 2b [USD/hm3]: {'LMAULE': 94098, 'CIPRESES': 57511, 'PEHUENCHE': 15933, 'COLBUN': 16815}
