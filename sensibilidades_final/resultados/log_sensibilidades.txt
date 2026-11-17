@@ -49,5 +49,5 @@ Includes third-party software components, see THIRD_PARTY_NOTICES.md for full de
   Uso previo 250 hm3                         Medio   Q=  95.1  Q90= 51.8  Qmin= 58.4  Vf= 756.7  OK
   Uso previo 250 hm3                         Seco    Q=  68.2  Q90= 31.8  Qmin= 38.2  Vf= 664.7  OK
 
-Listo en 141 s. Resultados en /home/user/Capstone/sensibilidades_final/resultados
+Listo en 140 s. Resultados en /home/user/Capstone/sensibilidades_final/resultados
 Valor del agua usado en 2b [USD/hm3]: {'LMAULE': 94098, 'CIPRESES': 57511, 'PEHUENCHE': 15933, 'COLBUN': 16815}

@@ -345,7 +345,11 @@ def exportar():
         ax.set_title(tit, fontsize=10)
         ax.grid(axis="x", alpha=.3)
     axs[0].set_yticks(range(len(casos)))
-    axs[0].set_yticklabels([c for _, c in casos], fontsize=8)
+    ETIQ = {"Miope (notebook, sin condición terminal)": "Miope",
+            "Miope con V_final >= V_inicial": "Miope con $V_f \\geq V_0$",
+            "Sin condición terminal, con valor del agua": "Sin cond. terminal, con valor del agua",
+            "Sin filtración (0 m3/s)": "Sin filtración"}
+    axs[0].set_yticklabels([ETIQ.get(c, c).replace("hm3", "hm³") for _, c in casos], fontsize=8)
     axs[0].invert_yaxis()
     h_, l_ = axs[1].get_legend_handles_labels()
     fig.legend(h_, l_, fontsize=8, loc="lower center", ncol=3, frameon=False)
