@@ -1,7 +1,7 @@
 # Corrida final del modelo del Maule (Modelo_Final_Maule_C2_corregido.ipynb)
-Fecha: 17-11-2026 · HiGHS 1.16 (respaldo automático, sin licencia completa de Gurobi) · todas las celdas sin errores.
+Fecha: 18-11-2026 · Gurobi 13.0.3 (licencia académica, `SOLVER=gurobi`) · todas las celdas sin errores.
 Verificación independiente OK en los 3 escenarios, en el caso base y en los 45 casos de sensibilidad.
-Los resultados del modelo, de las sensibilidades y de los 65 años son idénticos a la corrida con Gurobi del 18-10-2026.
+Todos los resultados (modelo, sensibilidades y 65 años) coinciden con la corrida del 17-11-2026; solo cambian los tiempos de cómputo.
 
 ## Qué cambió respecto de la corrida del 18-10-2026
 1. **Caso base comparable** (aporte del código de un compañero, integrado al notebook del repositorio).
@@ -32,14 +32,14 @@ Los resultados del modelo, de las sensibilidades y de los 65 años son idéntico
 ## Caso base secuencial vs. modelo
 | | Q medio | Q90 | Q mín. semanal | Ingreso [MUSD] | Déficit riego | V final LMAULE |
 |---|---|---|---|---|---|---|
-| Húmedo | 135,9 → 135,9 | 74,8 → 79,0 | 58,6 → 70,9 | 404,8 → 421,1 (+16,3) | 0 → 0 | 754,9 → 754,9 |
-| Medio | 98,1 → 98,1 | 50,0 → 52,2 | 31,0 → 68,8 | 346,1 → 391,3 (+45,3) | 0 → 0 | 664,7 → 664,7 |
+| Húmedo | 135,9 → 135,9 | 74,8 → 79,0 | 58,6 → 70,9 | 402,4 → 421,1 (+18,7) | 0 → 0 | 754,9 → 754,9 |
+| Medio | 98,1 → 98,1 | 50,0 → 52,2 | 31,0 → 68,8 | 343,7 → 391,3 (+47,7) | 0 → 0 | 664,7 → 664,7 |
 | Seco | 68,2 → 68,2 | 26,7 → 28,5 | 28,5 → 42,3 | 232,7 → 280,0 (+47,3) | 0 → 0 | 664,7 → 664,7 |
 
 **Lectura:** con las mismas condiciones de borde, planificar el año no cambia cuánta agua llega a
 B_Maule, sino **cuándo** llega: sube el Q90 y sobre todo el mínimo semanal, y el ingreso. La ganancia
-por planificar es mayor que la informada antes (+16 / +45 / +47 MUSD contra +19 / +44 / +11), porque
-el caso base ya no puede vaciar la Laguna.
+por planificar es +18,7 / +47,7 / +47,3 MUSD (antes +19 / +44 / +11). En el año seco es mucho mayor,
+porque el caso base ya no puede vaciar la Laguna.
 
 ## Sensibilidades (Δ respecto del modelo; detalle en `sensibilidades_borde.xlsx`)
 | Factor | Δ Q medio [m³/s] (H / M / S) | Δ Q90 [m³/s] (H / M / S) | Comentario |
@@ -72,7 +72,7 @@ Ingreso medio 363,4 MUSD. Déficit de riego 0 en los 65 años.
 
 ## Qué hay que actualizar en el informe final (.tex)
 1. Caso base: reemplazar la descripción del miope por la operación secuencial con las mismas condiciones
-   de borde, la tabla caso base vs. modelo y su lectura (ganancia +16 / +45 / +47 MUSD; mismo caudal medio).
+   de borde, la tabla caso base vs. modelo y su lectura (ganancia +18,7 / +47,7 / +47,3 MUSD; mismo caudal medio).
 2. Figura `fig:miope` (`e3_miope_terminal.pdf`): ahora compara modelo, caso base secuencial y miope puro.
 3. Agregar la tabla de sensibilidad por factor y las figuras `e3_tornado.pdf` y `e3_tornado_central.pdf`.
 4. Reemplazar las figuras de `figures_informe/` (mismos nombres).

@@ -149,7 +149,7 @@ el mismo caudal medio, pero más estable y con más ingreso:
 | Caudal medio en `B_Maule` | 135,9 → 135,9 | 98,1 → 98,1 | 68,2 → 68,2 |
 | `Q90` | 74,8 → 79,0 | 50,0 → 52,2 | 26,7 → 28,5 |
 | Caudal mínimo semanal | 58,6 → 70,9 | 31,0 → 68,8 | 28,5 → 42,3 |
-| Ingreso [MUSD] | 404,8 → 421,1 | 346,1 → 391,3 | 232,7 → 280,0 |
+| Ingreso [MUSD] | 402,4 → 421,1 | 343,7 → 391,3 | 232,7 → 280,0 |
 
 En el análisis de sensibilidad, el caudal medio en `B_Maule` cambia a lo más
 ~4 m³/s en los años húmedo y medio. En el año seco solo lo suben los casos que
@@ -176,17 +176,19 @@ Para la nueva central, usando `Qd = Q50 = 99,4 m³/s` y rendimiento supuesto
 
 ## Verificación de la corrida
 
-La corrida registrada en `resultados_corrida\` se ejecutó el 17-11-2026 con
-Python 3.13, `gurobipy 13.0.3` (licencia restringida de `pip`) y **HiGHS 1.16**
-como solver, mediante el respaldo automático de la sección 0. Todas las
-soluciones pasan la verificación independiente. Los resultados del modelo, de
-las sensibilidades y de los 65 años coinciden con la corrida anterior hecha con
-Gurobi; en los casos secuenciales (caso base y miope) el ingreso puede diferir
-en algunos MUSD entre solvers por soluciones alternativas semana a semana.
+La corrida oficial registrada en `resultados_corrida\` se ejecutó el 18-11-2026
+con Python 3.11.7 y **Gurobi 13.0.3** (licencia académica), forzando el solver
+con la variable de entorno `SOLVER=gurobi` para que no se use el respaldo de
+HiGHS. Todas las celdas corren sin errores y todas las soluciones pasan la
+verificación independiente. Todos los resultados del modelo, las sensibilidades
+y los 65 años coinciden con la corrida del 17-11-2026; solo cambian los tiempos
+de cómputo.
 
-Para dejar la corrida oficial con Gurobi, basta ejecutar el comando de la
-sección *Ejecución reproducible* con la licencia académica activa y volver a
-subir la carpeta `resultados_corrida\`.
+Para repetir la corrida con Gurobi, se ejecuta el comando de la sección
+*Ejecución reproducible* después de definir `$env:SOLVER = "gurobi"`. El
+respaldo con HiGHS sirve solo para ejecutar el notebook sin licencia. En ese
+caso, el ingreso de los casos secuenciales (caso base y miope) puede diferir en
+algunos MUSD, porque cada semana puede tener soluciones alternativas.
 
 Los archivos de `resultados_corrida\` son exclusivamente productos de la
 última ejecución y sirven para revisar tablas y figuras sin volver a resolver
