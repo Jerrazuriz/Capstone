@@ -4,7 +4,7 @@ Código computacional del modelo de operación de la cuenca del Maule y
 evaluación de una nueva central en el nodo `B_Maule`.
 
 Esta carpeta está preparada como entregable final del capstone. Contiene una
-sola corrida, la del 17-11-2026 (ver *Verificación de la corrida*). El notebook
+sola corrida, la del 25-11-2026 (ver *Verificación de la corrida*). El notebook
 fuente y el notebook ejecutado no son dos corridas distintas:
 
 Repositorio: https://github.com/Jerrazuriz/Capstone
@@ -112,8 +112,7 @@ ejecutada. El notebook fuente no se reemplaza. La corrida genera o actualiza:
   Convenio) y el resumen por factor de la 11e (hojas `tornado_rangos` y
   `deltas_vs_modelo`).
 - `resultados_corrida\ingreso_potencial_y_periodos.xlsx`: ingreso potencial del
-  caudal y comparación por período (sección 12d). Se genera al volver a ejecutar
-  el notebook; la sección 12d se agregó después de la corrida oficial.
+  caudal y comparación por período (sección 12d).
 - `resultados_corrida\figures_informe\*.pdf`: todas las figuras del informe final,
   con el mismo nombre que usa el `.tex`:
 
@@ -185,13 +184,14 @@ Para la nueva central, usando `Qd = Q50 = 99,4 m³/s` y rendimiento supuesto
 
 ## Verificación de la corrida
 
-La corrida oficial registrada en `resultados_corrida\` se ejecutó el 18-11-2026
+La corrida oficial registrada en `resultados_corrida\` se ejecutó el 25-11-2026
 con Python 3.11.7 y **Gurobi 13.0.3** (licencia académica), forzando el solver
 con la variable de entorno `SOLVER=gurobi` para que no se use el respaldo de
 HiGHS. Todas las celdas corren sin errores y todas las soluciones pasan la
 verificación independiente. Todos los resultados del modelo, las sensibilidades
-y los 65 años coinciden con la corrida del 17-11-2026; solo cambian los tiempos
-de cómputo.
+y los 65 años coinciden con la corrida del 18-11-2026; solo cambian los tiempos
+de cómputo. Es la primera corrida oficial que incluye la sección 12d (ingreso
+potencial del caudal y período reciente).
 
 Para repetir la corrida con Gurobi, se ejecuta el comando de la sección
 *Ejecución reproducible* después de definir `$env:SOLVER = "gurobi"`. El

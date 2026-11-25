@@ -1,7 +1,9 @@
 # Corrida final del modelo del Maule (Modelo_Final_Maule_C2_corregido.ipynb)
-Fecha: 18-11-2026 · Gurobi 13.0.3 (licencia académica, `SOLVER=gurobi`) · todas las celdas sin errores.
+Fecha: 25-11-2026 · Gurobi 13.0.3 (licencia académica, `SOLVER=gurobi`) · todas las celdas sin errores.
 Verificación independiente OK en los 3 escenarios, en el caso base y en los 45 casos de sensibilidad.
-Todos los resultados (modelo, sensibilidades y 65 años) coinciden con la corrida del 17-11-2026; solo cambian los tiempos de cómputo.
+Todos los resultados (modelo, sensibilidades y 65 años) coinciden con la corrida del 18-11-2026; solo cambian los tiempos de cómputo.
+Esta corrida agrega la sección 12d (ingreso potencial del caudal y período reciente), con su planilla
+`ingreso_potencial_y_periodos.xlsx` y la figura `e3_periodo_reciente.pdf`.
 
 ## Qué cambió respecto de la corrida del 18-10-2026
 1. **Caso base comparable** (aporte del código de un compañero, integrado al notebook del repositorio).
@@ -70,9 +72,37 @@ Ingreso medio 363,4 MUSD. Déficit de riego 0 en los 65 años.
 | Operación aguas arriba, año medio (caso base / modelo) | 10,1 – 11,2 |
 | Convenio, año medio (con / sin) | 11,2 – 11,2 |
 
+## Ingreso potencial del caudal en B_Maule (sección 12d)
+KPI: I = η · Q medio · CMg medio · 8.760 h, con η = 0,45 y CMg medio de Pehuenche220 = 32,2 USD/MWh.
+
+| | Húmedo | Medio | Seco |
+|---|---|---|---|
+| Modelo [MUSD/año] | 17,26 | 12,45 | 8,66 |
+| Caso base secuencial [MUSD/año] | 17,26 | 12,45 | 8,66 |
+| Sin Convenio [MUSD/año] | 17,63 | 12,45 | 8,66 |
+| Validación bloque a bloque [MUSD/año] | 16,39 (−5,1 %) | 13,46 (+8,1 %) | 9,34 (+7,8 %) |
+
+El KPI solo cambia en los casos que mueven el caudal medio o el CMg: miope puro y sin condición terminal
+(seco 9,4–10,4), uso previo de la cuota (húmedo 16,8–17,6; medio 12,1–12,5), V inicial de 400 hm³ (medio 12,2),
+sin Convenio (húmedo 17,6) y CMg de su propia hidrología (15,4 / 12,5 / 9,8). Detalle en
+`ingreso_potencial_y_periodos.xlsx`.
+
+## Período reciente (sección 12d)
+| | 65 años | 1960-61 a 2009-10 | 2010-11 a 2024-25 |
+|---|---|---|---|
+| Caudal medio anual [m³/s] | 107,9 | 115,8 | 81,6 |
+| Q50 / Q90 del caudal semanal [m³/s] | 95,6 / 56,4 | 101,1 / 64,6 | 72,2 / 46,2 |
+| Tiempo con caudal ≥ Qd = 99,4 m³/s [%] | 45,4 | 52,1 | 22,9 |
+| Ingreso potencial medio (p10 – p90) [MUSD/año] | 13,7 (9,0 – 19,4) | 14,7 (10,0 – 20,1) | 10,4 (7,0 – 12,5) |
+
+El período reciente tiene 30 % menos caudal medio: 14 de los 15 años quedan bajo la media de 65 años, con
+una racha de 13 años bajo la media (2010-11 a 2022-23). Mann-Whitney p = 9,3e-05; tendencia −5,1 m³/s por década.
+
 ## Qué hay que actualizar en el informe final (.tex)
 1. Caso base: reemplazar la descripción del miope por la operación secuencial con las mismas condiciones
    de borde, la tabla caso base vs. modelo y su lectura (ganancia +18,7 / +47,7 / +47,3 MUSD; mismo caudal medio).
 2. Figura `fig:miope` (`e3_miope_terminal.pdf`): ahora compara modelo, caso base secuencial y miope puro.
 3. Agregar la tabla de sensibilidad por factor y las figuras `e3_tornado.pdf` y `e3_tornado_central.pdf`.
-4. Reemplazar las figuras de `figures_informe/` (mismos nombres).
+4. Agregar el KPI de ingreso potencial y la comparación por período (sección 12d), con la figura
+   `e3_periodo_reciente.pdf` (`fig:reciente`).
+5. Reemplazar las figuras de `figures_informe/` (mismos nombres).
