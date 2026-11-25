@@ -29,6 +29,10 @@ Repositorio: https://github.com/Jerrazuriz/Capstone
   resumen por factor y gráfico tipo tornado.
 - **Serie de 65 años** y **nueva central** en `B_Maule`, con sensibilidad de su
   ingreso a η, caudal de diseño, precios, hidrología y operación aguas arriba.
+- **Ingreso potencial del caudal y período reciente** (sección 12d): KPI de
+  ingreso = η · caudal promedio · CMg promedio · 8.760 h, por escenario, caso base,
+  sin Convenio, sensibilidades y 65 años, con su validación bloque a bloque; y la
+  comparación del registro completo con 1960-61 a 2009-10 y 2010-11 a 2024-25.
 
 ## Requisitos
 
@@ -73,6 +77,7 @@ credenciales WLS dentro del notebook ni del repositorio.
     ├── resultados_modelo_final_maule.xlsx
     ├── resultados_65_anios.xlsx
     ├── sensibilidades_borde.xlsx
+    ├── ingreso_potencial_y_periodos.xlsx
     ├── RESUMEN_corrida.md
     ├── log_corrida.txt
     └── figures_informe
@@ -106,6 +111,9 @@ ejecutada. El notebook fuente no se reemplaza. La corrida genera o actualiza:
   la Laguna, filtración, uso previo de la cuota 2026, precios, gasto de riego y
   Convenio) y el resumen por factor de la 11e (hojas `tornado_rangos` y
   `deltas_vs_modelo`).
+- `resultados_corrida\ingreso_potencial_y_periodos.xlsx`: ingreso potencial del
+  caudal y comparación por período (sección 12d). Se genera al volver a ejecutar
+  el notebook; la sección 12d se agregó después de la corrida oficial.
 - `resultados_corrida\figures_informe\*.pdf`: todas las figuras del informe final,
   con el mismo nombre que usa el `.tex`:
 
@@ -121,6 +129,7 @@ ejecutada. El notebook fuente no se reemplaza. La corrida genera o actualiza:
   | `e2_nueva_central.pdf` | Nueva central | 12b |
   | `e3_tornado.pdf` | Rango del cambio en Q medio y Q90 por factor (`fig:tornado`) | 11e |
   | `e3_tornado_central.pdf` | Sensibilidad del ingreso de la nueva central (`fig:tornado_central`) | 12b |
+  | `e3_periodo_reciente.pdf` | Caudal medio anual y curva de duración por período (`fig:reciente`) | 12d |
 
   Todas se generan en la sección 12c; basta copiarlas a `figures/` en Overleaf.
 - `resultados_corrida\log_corrida.txt`: salida textual completa de la corrida.
